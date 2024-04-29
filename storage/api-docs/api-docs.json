@@ -1,0 +1,317 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Ян API",
+        "description": "Моё API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/applications": {
+            "get": {
+                "summary": "Get all applications",
+                "operationId": "98a5b543f6f34ec19e9c32a08768cea2",
+                "responses": {
+                    "200": {
+                        "description": "List of applications"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new application",
+                "operationId": "34720905f1a9d5025cbd327506276cb6",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ApplicationRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Application created successfully"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/applications/{id}": {
+            "get": {
+                "summary": "Get an application by ID",
+                "operationId": "9840eafa01f34caedef44433a40cefa6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Application found"
+                    },
+                    "404": {
+                        "description": "Application not found"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update an application by ID",
+                "operationId": "09ddb8e5f23ad6297d3bd3490273967e",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ApplicationRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Application updated successfully"
+                    },
+                    "404": {
+                        "description": "Application not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete an application by ID",
+                "operationId": "6bf6e65bcee07d9a09026025486a7b36",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Application deleted successfully"
+                    },
+                    "404": {
+                        "description": "Application not found"
+                    }
+                }
+            }
+        },
+        "/api/services": {
+            "get": {
+                "summary": "Get all services",
+                "operationId": "aee9ef5269c75a472eae45a5f995fdb0",
+                "responses": {
+                    "200": {
+                        "description": "List of services"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a new service",
+                "operationId": "f9d80e302c57baacfc01b5b9580b4d59",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ServiceRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Service created successfully"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/services/{id}": {
+            "get": {
+                "summary": "Get a service by ID",
+                "operationId": "be1c2e8991f466bfc30fb1541e1ecbc8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Service found"
+                    },
+                    "404": {
+                        "description": "Service not found"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a service by ID",
+                "operationId": "fec3836e581959a4aa648ecb8437d0a5",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ServiceRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Service updated successfully"
+                    },
+                    "404": {
+                        "description": "Service not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a service by ID",
+                "operationId": "df1d2408e800134432a8913484e84e32",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Service deleted successfully"
+                    },
+                    "404": {
+                        "description": "Service not found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ApplicationRequest": {
+                "required": [
+                    "name",
+                    "phone",
+                    "email",
+                    "question",
+                    "category",
+                    "file_path",
+                    "date"
+                ],
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "John Doe"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "example": "1234567890"
+                    },
+                    "telegram": {
+                        "type": "string",
+                        "example": "john_doe"
+                    },
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "john@example.com"
+                    },
+                    "question": {
+                        "type": "string",
+                        "example": "Question content"
+                    },
+                    "category": {
+                        "type": "string",
+                        "example": "Category"
+                    },
+                    "file_path": {
+                        "type": "string",
+                        "example": "https://example.com/file.pdf"
+                    },
+                    "date": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2024-04-30"
+                    }
+                },
+                "type": "object"
+            },
+            "ServiceRequest": {
+                "required": [
+                    "sort_order",
+                    "title",
+                    "description",
+                    "file_icon"
+                ],
+                "properties": {
+                    "sort_order": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "Service Title"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "This is a description of the service."
+                    },
+                    "file_icon": {
+                        "type": "string",
+                        "example": "https://example.com/icon.png"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
